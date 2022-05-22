@@ -1,17 +1,30 @@
-import React from 'react';
-import { Routes, Navigation } from "react-router-dom"
-import Chats from "../pages/Chats";
+import React, {createContext, useContext} from 'react';
+import {Routes, Route, Navigate} from "react-router-dom"
+import {AuthContext} from "../context/AuthContext";
+import {privateRoutes, publicRoutes} from "./routes";
 
 const AppRoutes = () => {
-    return (
-        <div>
+
+    const {isAuth} = useContext(AuthContext);
+
+    // Если пользователь не авторизован
+    if (!isAuth) {
+        return (
             <Routes>
+                {publicRoutes.map((e) => <Route key={e.path} path={e.path} element={e.element}></Route>)}
 
-                <Route path="/chats" element={<Chats />} />
-
-                <Route path="*" element={<Navigation to="/chats"/>}></Route>
+                <Route path="*" element={<Navigate to="/login"/>}></Route>
             </Routes>
-        </div>
+        )
+    }
+
+    // Если пользователь авторизован
+    return (
+        <Routes>
+            {privateRoutes.map((e) => <Route key={e.path} path={e.path} element={e.element}></Route>)}
+
+            <Route path="*" element={<Navigate to="/chats"/>}></Route>
+        </Routes>
     );
 };
 
