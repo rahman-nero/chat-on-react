@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
+import "./styles/main.css"
 import {AuthContext} from "./context/AuthContext";
 
 const App = () => {
@@ -14,16 +15,12 @@ const App = () => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{
-            isAuth,
-            setIsAuth
-        }}>
+        <AuthContext.Provider value={{isAuth, setIsAuth}}>
             <BrowserRouter>
 
                 {/* Routes */}
                 <AppRoutes/>
             </BrowserRouter>
-
         </AuthContext.Provider>
     );
 };

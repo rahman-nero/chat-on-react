@@ -1,0 +1,38 @@
+.error_alert {
+    max-width: 500px;
+    background: red;
+    display: flex;
+    align-items: center;
+    right: 30px;
+    bottom: 10px;
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    color: white;
+    font-size: 15px;
+    user-select: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .43);
+    cursor: pointer;
+}
+
+.error_content {
+    margin-right: 10px;
+}
+
+.close_button {
+    text-align: right;
+    flex: 0.2;
+}
+
+.close_button button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.close_button button:hover {
+    background: red;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}

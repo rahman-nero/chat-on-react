@@ -1,0 +1,84 @@
+
+.login_container {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fafafa;
+    border: 1px solid rgb(0, 0, 0, .1);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .3);
+    border-radius: 2px;
+    padding: 40px 30px;
+    user-select: none;
+}
+
+
+/** Текст "Вход" */
+.header {
+    text-align: center;
+}
+
+/** Блоки в котороые обернуты input*/
+.login_container .form_block {
+    display: block;
+    margin: 0 0 30px;
+}
+
+/** Стили для label инпута*/
+.login_container .form_block label {
+    display: block;
+    color: rgb(0, 157, 0);
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/** Стили для input*/
+.login_container .form_block input {
+    width: 400px;
+    padding: 10px 15px;
+    border: 1px solid teal;
+    outline-color: #009d00;
+}
+
+/** Кнопка "Забыли пароль?"*/
+.forget_password {
+    margin-top: -20px;
+    text-align: right;
+    /*background: #000;*/
+    width: 100%;
+}
+.forget_password a {
+    font-size: 14px;
+    color: rgba(0,0,0,.8);
+}
+.forget_password a:hover {
+    color: rgba(0,0,0,1);
+}
+
+
+/** Стили для ссылки "Регистрация"*/
+.register_button {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #009d00;
+}
+
+
+
+/** Кнопка "Войти" */
+.login_button {
+    padding: 10px 0;
+    border: none;
+    background: #009d00;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login_button:hover {
+    background: #017601;
+    box-shadow: 0 0 4px rgba(0,0,0,.3);
+}
