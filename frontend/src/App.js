@@ -1,8 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import "./styles/main.css"
 import {AuthContext} from "./context/AuthContext";
+import axios from "axios";
 
 const App = () => {
 
@@ -13,6 +14,22 @@ const App = () => {
             setIsAuth(true);
         }
     }, []);
+
+
+    function a() {
+
+    }
+
+
+    useEffect(() => {
+
+       axios.get('api')
+           .then((response) => {
+           console.log(response);
+       });
+
+
+    },[]);
 
     return (
         <AuthContext.Provider value={{isAuth, setIsAuth}}>

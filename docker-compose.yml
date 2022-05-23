@@ -1,0 +1,75 @@
+version: '3.7'
+services:
+    npm:
+        container_name: chat-npm
+        build:
+            context: ./
+            dockerfile: docker/npm/Dockerfile
+        volumes:
+            -  ./frontend:/var/www
+        tty: true
+        restart: unless-stopped
+
+    php-cli:
+        container_name: chat-php-cli
+        build:
+            context: ./
+            dockerfile: docker/php-cli/Dockerfile
+            args:
+                WWWUSER: 'obitel'
+        volumes:
+            - ./backend:/var/www/
+        user: 'obitel'
+        ports:
+            - "9001:9001"
+        tty: true
+
+    php-fpm:
+        container_name: chat-php-fpm
+        build:
+            context: ./
+            dockerfile: docker/php-fpm/Dockerfile
+            args:
+                WWWUSER: 'obitel'
+        volumes:
+            - ./:/var/www/
+#        ports:
+#            - "9001:9001"
+        links:
+            - mysql
+        user: 'obitel'
+
+    nginx:
+        container_name: chat-nginx
+        build:
+            context: ./
+            dockerfile: docker/nginx/Dockerfile
+        ports:
+            - "8080:80"
+#            - "8081:81"
+
+        volumes:
+            - ./:/var/www/
+            - ./docker/nginx/confs/:/etc/nginx/conf.d/
+        links:
+            - php-fpm
+
+    mysql:
+        container_name: chat-mysql
+        image: mysql:8.0
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=rahman
+            - MYSQL_PASSWORD=rahman
+            - MYSQL_DATABASE=app
+        volumes:
+            - ./docker/running/mysql:/var/lib/mysql/
+        ports:
+            - "33006:3306"
+
+    redis:
+        container_name: chat-redis
+        image: redis
+        ports:
+            - "63799:6379"
+

@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <div>
             <div className={cl.login_container}>
-                <form action="">
+                <form action="frontend/src/pages/Login">
                     <h1 className={cl.header}>Вход</h1>
 
 
