@@ -15,11 +15,9 @@ const App = () => {
         }
     }, []);
 
-
     function a() {
 
     }
-
 
     useEffect(() => {
 
@@ -28,8 +26,8 @@ const App = () => {
            console.log(response);
        });
 
-
     },[]);
+
 
     return (
         <AuthContext.Provider value={{isAuth, setIsAuth}}>
