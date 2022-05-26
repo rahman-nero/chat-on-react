@@ -1,14 +1,14 @@
-import React, {createContext, useContext} from 'react';
+import React, {useContext} from 'react';
 import {Routes, Route, Navigate} from "react-router-dom"
 import {AuthContext} from "../context/AuthContext";
 import {privateRoutes, publicRoutes} from "./routes";
 
 const AppRoutes = () => {
 
-    const {isAuth} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     // Если пользователь не авторизован
-    if (!isAuth) {
+    if (!user) {
         return (
             <Routes>
                 {publicRoutes.map((e) => <Route key={e.path} path={e.path} element={e.element}></Route>)}

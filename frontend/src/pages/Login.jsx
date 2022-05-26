@@ -2,11 +2,14 @@ import React, {useContext, useState} from 'react';
 import cl from "../styles/Login.module.css"
 import {Link} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
+import jwt_decode from "jwt-decode"
 import AlertError from "../components/UI/alerts/error/AlertError";
+import {authorize} from "../API/UserService";
 
 const Login = () => {
 
-    const {setIsAuth} = useContext(AuthContext);
+    const {setUser} = useContext(AuthContext);
+
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,13 +20,19 @@ const Login = () => {
         e.preventDefault();
         setError(false) && setVisible(false)
 
-        if (login === 'rahman' && password === '1234567890') {
-            setIsAuth(true);
-            return;
-        }
+        authorize(login, password)
+        .then((response) => {
+            const data = response.data;
 
-        setError('Логин или пароль введены неправильно');
-        setVisible(true);
+            console.log(jwt_decode(data.access_token));
+
+            localStorage.setItem('token', data.access_token);
+            setUser(jwt_decode(data.access_token));
+
+        }).catch((error) => {
+            setError('Произошла ошибка при входе: ' + error.message);
+            setVisible(true);
+        });
     }
 
     return (

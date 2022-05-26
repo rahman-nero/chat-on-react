@@ -14,6 +14,9 @@ memory:
 route:
 	docker-compose exec php-cli php artisan route:cache
 
+cache:
+	docker-compose exec php-cli php artisan cache:clear
+
 php-migrate:
 	docker-compose exec php-cli php artisan migrate
 
@@ -38,9 +41,5 @@ npm:
 build-production:
 	docker-compose exec npm npm run build production
 
-mix-watch:
-	docker-compose exec npm npm run watch
-
-mix-build:
-	docker-compose exec npm npm run prod
-
+start:
+	docker-compose exec npm npm start

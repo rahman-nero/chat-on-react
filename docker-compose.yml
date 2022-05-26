@@ -9,6 +9,8 @@ services:
             -  ./frontend:/var/www
         tty: true
         restart: unless-stopped
+        ports:
+            -  "3000:3000"
 
     php-cli:
         container_name: chat-php-cli
@@ -46,7 +48,6 @@ services:
             dockerfile: docker/nginx/Dockerfile
         ports:
             - "8080:80"
-#            - "8081:81"
 
         volumes:
             - ./:/var/www/

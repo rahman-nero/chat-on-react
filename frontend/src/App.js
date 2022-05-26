@@ -3,41 +3,39 @@ import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import "./styles/main.css"
 import {AuthContext} from "./context/AuthContext";
-import axios from "axios";
+import {check} from "./API/UserService";
+import jwt_decode from "jwt-decode";
+
 
 const App = () => {
-
-    const [isAuth, setIsAuth] = useState(false);
-
-    useContext(() => {
-        if (localStorage.getItem('token')) {
-            setIsAuth(true);
-        }
-    }, []);
-
-    function a() {
-
-    }
+    const [user, setUser] = useState(undefined);
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
 
-       axios.get('api')
-           .then((response) => {
-           console.log(response);
-       });
+        if (token) {
+            console.log('Token ', token);
 
-    },[]);
+            check(token)
+            .then((response) => {
+                    setUser(jwt_decode(token));
+            }).catch((error) => {
+                setUser(false);
+            });
 
+        } else {
+            console.log('Token is not defined');
+        }
 
-    return (
-        <AuthContext.Provider value={{isAuth, setIsAuth}}>
+    }, []);
+
+    return (<AuthContext.Provider value={{user, setUser}}>
             <BrowserRouter>
 
                 {/* Routes */}
                 <AppRoutes/>
             </BrowserRouter>
-        </AuthContext.Provider>
-    );
+        </AuthContext.Provider>);
 };
 
 export default App;
