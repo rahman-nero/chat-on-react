@@ -1,23 +1,20 @@
-import {$host} from "../config";
+import {$authHost, $host} from "../config";
 
-const authorize = (login, password) => {
-    return $host.post('/login', {
+export const authorize = async (login, password) => {
+    return await $host.post('/login', {
         login,
         password
     });
 };
 
-const check = (token) => {
-    return $host.get('/check', {
+export const check = async (token) => {
+    return await $host.get('/check', {
         headers: {
             "Authorization" : `Bearer ${token}`
         }
     });
 }
 
-
-
-export {
-    check,
-    authorize,
+export const example = async () => {
+    return await $authHost.get('/example');
 }

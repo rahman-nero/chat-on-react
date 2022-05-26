@@ -8,26 +8,40 @@ import jwt_decode from "jwt-decode";
 
 
 const App = () => {
-    const [user, setUser] = useState(undefined);
+    const [user, setUser] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
+    async function auth() {
+        setIsLoading(true);
+
         const token = localStorage.getItem('token');
 
         if (token) {
             console.log('Token ', token);
+            const response = await check(token);
 
-            check(token)
-            .then((response) => {
-                    setUser(jwt_decode(token));
-            }).catch((error) => {
+            if (response.status === 200) {
+                setUser(jwt_decode(token));
+            } else {
                 setUser(false);
-            });
+            }
 
+            console.log(response);
         } else {
             console.log('Token is not defined');
         }
 
+        setIsLoading(false);
+    }
+
+    useEffect(() => {
+        auth();
     }, []);
+
+
+    if (isLoading) {
+        return (<h2>Загрузка</h2>)
+    }
 
     return (<AuthContext.Provider value={{user, setUser}}>
             <BrowserRouter>

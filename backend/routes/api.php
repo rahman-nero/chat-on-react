@@ -11,6 +11,11 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => 'auth:api'], function() {
+
     Route::get('/check', [UserController::class, 'check']);
+
+    Route::get('/example', function() {
+        return response()->json('Good');
+    });
 
 });
