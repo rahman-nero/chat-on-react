@@ -2,31 +2,37 @@ import React, {useContext, useEffect, useState} from 'react';
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import "./styles/main.css"
-import {AuthContext} from "./context/AuthContext";
 import {check} from "./API/UserService";
 import jwt_decode from "jwt-decode";
+import {useDispatch} from "react-redux";
+import Loader from "./components/UI/loader/Loader";
 
 
 const App = () => {
-    const [user, setUser] = useState(false);
+
+    const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
 
     async function auth() {
         setIsLoading(true);
-
         const token = localStorage.getItem('token');
 
         if (token) {
             console.log('Token ', token);
-            const response = await check(token);
 
-            if (response.status === 200) {
-                setUser(jwt_decode(token));
-            } else {
-                setUser(false);
+            try {
+                const response = await check(token);
+                console.log('Ответ от запроса: ' + response);
+                if (response.status === 200) {
+                    dispatch({type: 'SET_USER', payload: jwt_decode(token)});
+                }
+            } catch (error) {
+                console.log('Ошибка во время выполнения запроса: ' + error.message);
+
+                dispatch({type: 'SET_USER', payload: {}});
+                localStorage.removeItem('token');
             }
 
-            console.log(response);
         } else {
             console.log('Token is not defined');
         }
@@ -40,16 +46,16 @@ const App = () => {
 
 
     if (isLoading) {
-        return (<h2>Загрузка</h2>)
+        return (<Loader />)
     }
 
-    return (<AuthContext.Provider value={{user, setUser}}>
-            <BrowserRouter>
+    return (
+        <BrowserRouter>
 
-                {/* Routes */}
-                <AppRoutes/>
-            </BrowserRouter>
-        </AuthContext.Provider>);
+            {/* Routes */}
+            <AppRoutes/>
+        </BrowserRouter>
+    );
 };
 
 export default App;

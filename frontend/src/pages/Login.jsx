@@ -5,9 +5,11 @@ import {AuthContext} from "../context/AuthContext";
 import jwt_decode from "jwt-decode"
 import AlertError from "../components/UI/alerts/error/AlertError";
 import {authorize, example} from "../API/UserService";
+import {useDispatch} from "react-redux";
 
 const Login = () => {
-    const {setUser} = useContext(AuthContext);
+
+    const dispatch = useDispatch();
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -18,6 +20,7 @@ const Login = () => {
         e.preventDefault();
         setError(false) && setVisible(false)
 
+
         authorize(login, password)
         .then((response) => {
             const data = response.data;
@@ -25,14 +28,15 @@ const Login = () => {
             console.log(jwt_decode(data.access_token));
 
             localStorage.setItem('token', data.access_token);
-            setUser(jwt_decode(data.access_token));
+            dispatch({type: 'SET_USER', payload: jwt_decode(data.access_token)});
 
         }).catch((error) => {
-            setError('Произошла ошибка при входе: ' + error.message);
+            const responseMessage = error.response.data.message;
+
+            setError(responseMessage);
             setVisible(true);
         });
     }
-
 
 
     return (
@@ -65,7 +69,7 @@ const Login = () => {
             </div>
 
             {error &&
-                <AlertError visible={visible} setVisible={setVisible} timeout="3000">{error}</AlertError>
+                <AlertError visible={visible} setVisible={setVisible} timeout="5000">{error}</AlertError>
             }
         </div>
     );

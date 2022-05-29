@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const $host = axios.create({
+const $host = axios.create({
     baseURL: 'http://localhost:8080/api',
 });
 
-export const $authHost = axios.create({
+const $authHost = axios.create({
     baseURL: 'http://localhost:8080/api',
 });
 
@@ -16,3 +16,8 @@ const authInterceptor = config => {
 }
 
 $authHost.interceptors.request.use(authInterceptor)
+
+export {
+    $host,
+    $authHost
+}

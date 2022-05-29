@@ -1,0 +1,47 @@
+
+.loader {
+    margin: 0 auto;
+    background: #fff;
+    width: 100vm;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.circle {
+    /*background: white;*/
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px dashed #009d00;
+    animation-name: circle_rotate;
+    animation-duration: 800ms;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+.text_loading {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--greenColor);
+}
+
+
+@keyframes circle_rotate {
+    from {
+        transform: rotate(0deg)  scale(0.7);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+
+}

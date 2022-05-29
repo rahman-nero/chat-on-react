@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /**
@@ -14,6 +16,7 @@
 */
 #root {
     --textColor: black;
+    --greenColor: rgb(0, 157, 0);
 }
 
 body {

@@ -10,7 +10,7 @@ export const authorize = async (login, password) => {
 export const check = async (token) => {
     return await $host.get('/check', {
         headers: {
-            "Authorization" : `Bearer ${token}`
+            Authorization: `Bearer ${token}`
         }
     });
 }

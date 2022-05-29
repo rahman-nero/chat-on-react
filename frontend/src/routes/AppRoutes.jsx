@@ -1,14 +1,14 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Routes, Route, Navigate} from "react-router-dom"
-import {AuthContext} from "../context/AuthContext";
 import {privateRoutes, publicRoutes} from "./routes";
+import {useSelector} from "react-redux";
 
 const AppRoutes = () => {
 
-    const {user} = useContext(AuthContext);
+    const user = useSelector((state) => state );
 
     // Если пользователь не авторизован
-    if (!user) {
+    if (Object.keys(user).length === 0) {
         return (
             <Routes>
                 {publicRoutes.map((e) => <Route key={e.path} path={e.path} element={e.element}></Route>)}

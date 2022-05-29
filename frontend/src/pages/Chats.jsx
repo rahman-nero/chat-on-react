@@ -1,9 +1,8 @@
-import React, {useContext} from 'react';
-import {AuthContext} from "../context/AuthContext";
-import {$authHost} from "../config";
+import React from 'react';
+import {useSelector} from "react-redux";
 
 const Chats = () => {
-    const {user} = useContext(AuthContext);
+    const user = useSelector(state => state);
 
     return (
         <div>
