@@ -16,6 +16,7 @@
 /** Текст "Вход" */
 .header {
     text-align: center;
+    margin: 30px 0px;
 }
 
 /** Блоки в котороые обернуты input*/
@@ -53,6 +54,12 @@
 }
 .forget_password a:hover {
     color: rgba(0,0,0,1);
+}
+
+
+
+.caption {
+    margin: 20px 0;
 }
 
 

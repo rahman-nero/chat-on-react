@@ -62,7 +62,7 @@ const Login = () => {
 
                     <div className={cl.forget_password}><Link to="/login/forget">Забыли пароль?</Link></div>
 
-                    <p>Нет аккаунта? <Link to="/register" className={cl.register_button}>Регистрация</Link></p>
+                    <div className={cl.caption} >Нет аккаунта? <Link to="/register" className={cl.register_button}>Регистрация</Link></div>
 
                     <button className={cl.login_button} onClick={loginHandler}>Войти</button>
                 </form>

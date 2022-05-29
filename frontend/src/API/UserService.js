@@ -15,6 +15,11 @@ export const check = async (token) => {
     });
 }
 
-export const example = async () => {
-    return await $authHost.get('/example');
+export const register = async (login, email, password) => {
+    return await $host.post('/register', {
+        login,
+        email,
+        password,
+        password_confirmation: password
+    });
 }
