@@ -1,4 +1,4 @@
-import {$authHost, $host} from "../config";
+import {$authHost, $host} from "../config/axios";
 
 export const authorize = async (login, password) => {
     return await $host.post('/login', {

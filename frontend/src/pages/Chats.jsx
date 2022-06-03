@@ -1,25 +1,17 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import Echo from "laravel-echo";
+import echoConnect from "../config/echo-server";
+import {getToken} from "../utils/common";
 
 const Chats = () => {
-    const user = useSelector(state => state);
+    const user = useSelector(state => state.user);
 
-    window.io = require('socket.io-client');
-    const echo = new Echo({
-        broadcaster: 'socket.io',
-        host: 'http://localhost:6001',
-        auth: {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            }
-        }
-    });
+    const echo = echoConnect(getToken());
 
     echo.private('at')
-        .listen('.start', (c) => {
-            console.log(c);
-        });
+    .listen('.start', (c) => {
+        console.log(c);
+    });
 
     return (
         <div>

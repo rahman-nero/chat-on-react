@@ -1,10 +1,9 @@
 import React, {useContext, useState} from 'react';
 import cl from "../styles/Login.module.css"
 import {Link} from "react-router-dom";
-import {AuthContext} from "../context/AuthContext";
 import jwt_decode from "jwt-decode"
 import AlertError from "../components/UI/alerts/error/AlertError";
-import {authorize, example} from "../API/UserService";
+import {authorize} from "../API/UserService";
 import {useDispatch} from "react-redux";
 
 const Login = () => {

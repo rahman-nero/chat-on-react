@@ -38,7 +38,7 @@ echo-server:
 
 ######################## Npm
 npm:
-	docker-compose exec npm npm install
+	docker-compose exec npm npm i
 
 build-production:
 	docker-compose exec npm npm run build production

@@ -7,10 +7,9 @@ import jwt_decode from "jwt-decode";
 import {useDispatch} from "react-redux";
 import Loader from "./components/UI/loader/Loader";
 
-
 const App = () => {
-
     const dispatch = useDispatch();
+
     const [isLoading, setIsLoading] = useState(false);
 
     async function auth() {
@@ -46,12 +45,11 @@ const App = () => {
 
 
     if (isLoading) {
-        return (<Loader />)
+        return (<Loader/>)
     }
 
     return (
         <BrowserRouter>
-
             {/* Routes */}
             <AppRoutes/>
         </BrowserRouter>
