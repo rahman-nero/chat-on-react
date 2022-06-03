@@ -22,6 +22,7 @@ services:
         volumes:
             - ./backend:/var/www/
         user: 'obitel'
+        restart: unless-stopped
         ports:
             - "9001:9001"
         tty: true
@@ -34,9 +35,10 @@ services:
             args:
                 WWWUSER: 'obitel'
         volumes:
-            - ./:/var/www/
+            - ./backend:/var/www/
 #        ports:
 #            - "9001:9001"
+        restart: unless-stopped
         links:
             - mysql
         user: 'obitel'
@@ -47,17 +49,20 @@ services:
             context: ./
             dockerfile: docker/nginx/Dockerfile
         ports:
-            - "8080:80"
-
+            - "80:80"
+        restart: unless-stopped
         volumes:
             - ./:/var/www/
             - ./docker/nginx/confs/:/etc/nginx/conf.d/
         links:
             - php-fpm
+        extra_hosts:
+            - "my-localhost:188.0.169.100"
 
     mysql:
         container_name: chat-mysql
         image: mysql:8.0
+        restart: unless-stopped
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_USER=rahman
@@ -73,4 +78,16 @@ services:
         image: redis
         ports:
             - "63799:6379"
+
+#    echo-server:
+#        container_name: chat-echo-server
+#        build:
+#            context: ./
+#            dockerfile: ./docker/echo-server/Dockerfile
+#        volumes:
+#            -  ./backend:/var/www
+#        tty: true
+#        ports:
+#            -  "6001:6001"
+#        restart: unless-stopped
 

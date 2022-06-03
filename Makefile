@@ -33,8 +33,10 @@ queue:
 	docker-compose exec php-cli php artisan queue:work
 
 
-######################## Npm
+echo-server:
+	docker-compose exec echo-server laravel-echo-server start --force
 
+######################## Npm
 npm:
 	docker-compose exec npm npm install
 
