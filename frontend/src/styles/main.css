@@ -15,8 +15,10 @@
  *
 */
 #root {
-    --textColor: black;
-    --greenColor: rgb(0, 157, 0);
+    --mainColor: #0d141a;
+    --mainColor2: #22272e;
+    --buttonColor: rgb(38,75,243);
+    --textColor: rgba(255,255,255, .8);
 }
 
 body {

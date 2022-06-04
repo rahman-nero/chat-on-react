@@ -9,7 +9,7 @@ const echoConnect = (token) => {
 
     return new Echo({
         broadcaster: 'socket.io',
-        host: 'http://localhost:6001',
+        host: 'http://api.backend.com',
         auth: {
             headers: {
                 'Authorization': `Bearer ${token}`,

@@ -1,12 +1,12 @@
 {
-	"authHost": "http://api.backend.com",
+	"authHost": "http://nginx",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
 	"databaseConfig": {
 		"redis": {
-            "port": "63799",
-            "host": "127.0.0.1"
+            "port": "6379",
+            "host": "redis"
         },
 		"sqlite": {
 			"databasePath": "/database/laravel-echo-server.sqlite"

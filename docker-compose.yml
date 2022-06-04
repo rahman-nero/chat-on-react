@@ -56,8 +56,8 @@ services:
             - ./docker/nginx/confs/:/etc/nginx/conf.d/
         links:
             - php-fpm
-        extra_hosts:
-            - "my-localhost:188.0.169.100"
+#        extra_hosts:
+#            - "my-localhost:188.0.169.100"
 
     mysql:
         container_name: chat-mysql
@@ -79,15 +79,13 @@ services:
         ports:
             - "63799:6379"
 
-#    echo-server:
-#        container_name: chat-echo-server
-#        build:
-#            context: ./
-#            dockerfile: ./docker/echo-server/Dockerfile
-#        volumes:
-#            -  ./backend:/var/www
-#        tty: true
-#        ports:
-#            -  "6001:6001"
-#        restart: unless-stopped
+    echo-server:
+        container_name: chat-echo-server
+        build:
+            context: ./
+            dockerfile: ./docker/echo-server/Dockerfile
+        volumes:
+            -  ./backend:/var/www
+        tty: true
+        restart: unless-stopped
 

@@ -1,3 +1,83 @@
 .app {
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--mainColor);
+    display: flex;
+}
 
+.left {
+    flex: 1;
+    background: var(--mainColor2);
+    padding: 10px;
+}
+
+.search__block {
+
+}
+
+.search__block input {
+    background:#0d1114;
+    color: var(--textColor);
+    display: block;
+    width: 100%;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.create_chat_button {
+    padding: 14px 10px;
+    background: var(--buttonColor);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 500ms;
+}
+
+.create_chat_button:hover {
+    box-shadow: 0px 0px 20px rgb(38,75,243, .8);
+}
+
+.chats {
+    margin: 20px 0 0;
+}
+
+.chat {
+    background: #1e2c36;
+    display: flex;
+    padding: 10px;
+    color: var(--textColor);
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.chat img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.chat__info {
+    padding-top: 4px;
+    margin-left: 10px;
+}
+
+.chat_author {
+
+}
+
+.last_message {
+    margin-top: 3px;
+}
+
+.chat_container{
+    flex: 4;
 }
