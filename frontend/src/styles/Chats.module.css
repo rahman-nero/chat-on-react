@@ -9,30 +9,42 @@
     display: flex;
 }
 
-/* chat folders */
+/* Сhat folders */
 .folders {
     width: 100px;
     background: var(--mainColor);
-    padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .fold {
-    margin-bottom: 20px ;
-    color: white;
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
 }
 
-.fold img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.fold:hover {
+    /*background: #000;*/
 }
 
 .fold__caption {
-
+    margin-top: 5px;
+    font-size: 13px;
+    color: #d2d0d3;
 }
+
+.fold.active {
+    background: var(--mainColor2);
+    color: #637bf9;
+}
+
+.fold.active .fold__caption {
+    color: #637bf9;
+    /*color: var(--buttonColor);*/
+}
+
 
 
 .left {

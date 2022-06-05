@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import userProfileImg from "../images/userprofile.png"
 import folderImg from "../images/test-folder.png"
 import cl from "../styles/Chats.module.css"
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCake, faAddressBook} from "@fortawesome/free-solid-svg-icons";
+
+
 import echoConnect from "../config/echo-server";
 import {getToken} from "../utils/common";
+import Folders from "../components/Folders";
 
 const Chats = () => {
     const user = useSelector(state => state.user);
+
+    const [folders, setFolders] = useState([
+        {folder_id: 1, folder_name: "Друзья", folder_icon: <FontAwesomeIcon icon={faCake} /> },
+        {folder_id: 2, folder_name: "Работа", folder_icon: <FontAwesomeIcon icon={faAddressBook} /> },
+    ]);
 
     // const echo = echoConnect(getToken());
     //
@@ -16,20 +27,15 @@ const Chats = () => {
     //     console.log(c);
     // });
 
+    const changeFold = (e) => {
+
+        console.log(e.target);
+    }
+
     return (
         <div className={cl.app}>
 
-            <div className={cl.folders}>
-                <div className={cl.fold}>
-                    <img src={folderImg} alt=""/>
-                    <div className={cl.fold__caption}>Друзья</div>
-                </div>
-
-                <div className={cl.fold}>
-                    <img src={folderImg} alt=""/>
-                    <div className={cl.fold__caption}>Работа</div>
-                </div>
-            </div>
+            <Folders folders={folders} />
 
 
             <div className={cl.left}>
