@@ -9,12 +9,40 @@
     display: flex;
 }
 
-.left {
-    flex: 1;
-    background: var(--mainColor2);
+/* chat folders */
+.folders {
+    width: 100px;
+    background: var(--mainColor);
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.fold {
+    margin-bottom: 20px ;
+    color: white;
+}
+
+.fold img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.fold__caption {
+
+}
+
+
+.left {
+    width: 350px;
+    background: var(--mainColor2);
+    padding: 30px;
+    /*box-shadow: 0 0 15px rgba(0,0,0,.4);*/
+}
+
+/* Block search */
 .search__block {
 
 }
@@ -30,6 +58,7 @@
     outline: none;
 }
 
+/* Button "create new chat" in block search */
 .create_chat_button {
     padding: 14px 10px;
     background: var(--buttonColor);
@@ -47,12 +76,13 @@
     box-shadow: 0px 0px 20px rgb(38,75,243, .8);
 }
 
+/* All user chats */
 .chats {
     margin: 20px 0 0;
 }
 
 .chat {
-    background: #1e2c36;
+    /*background: #1e2c36;*/
     display: flex;
     padding: 10px;
     color: var(--textColor);

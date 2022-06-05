@@ -6,6 +6,7 @@ import {check} from "./API/UserService";
 import jwt_decode from "jwt-decode";
 import {useDispatch} from "react-redux";
 import Loader from "./components/UI/loader/Loader";
+import {setUser} from "./redux/reducers/user";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -22,13 +23,15 @@ const App = () => {
             try {
                 const response = await check(token);
                 console.log('Ответ от запроса: ' + response);
+
                 if (response.status === 200) {
-                    dispatch({type: 'SET_USER', payload: jwt_decode(token)});
+                    dispatch(setUser(jwt_decode(token)));
                 }
+
             } catch (error) {
                 console.log('Ошибка во время выполнения запроса: ' + error.message);
 
-                dispatch({type: 'SET_USER', payload: {}});
+                dispatch(setUser({}));
                 localStorage.removeItem('token');
             }
 

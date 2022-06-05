@@ -1,3 +1,6 @@
+const SET_USER = 'SET_USER';
+
+
 const defaultState = {}
 
 const reducer = (state = defaultState, action) => {
@@ -12,6 +15,6 @@ const reducer = (state = defaultState, action) => {
 }
 
 
-const SET_USER = 'SET_USER';
+export const setUser = (payload) => ({type: SET_USER, payload: payload});
 
 export default reducer;
