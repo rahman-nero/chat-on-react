@@ -4,8 +4,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCake} from "@fortawesome/free-solid-svg-icons";
 import {useParams} from "react-router-dom";
 import FoldItem from "./FoldItem";
+import {useSelector} from "react-redux";
 
-const Folders = ({folders}) => {
+const Folders = () => {
+
+    const folders = useSelector(state => state.folders);
 
     const changedFolderId = useParams();
     console.log(changedFolderId);
