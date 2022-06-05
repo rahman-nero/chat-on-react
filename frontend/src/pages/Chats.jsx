@@ -21,7 +21,25 @@ const Chats = () => {
 
         dispatch(setChats([
             {id: 1, username: 'Бензопила в действий', user_image: "https://www.osmpic.com/wp-content/uploads/2019/03/PicsArt_03-21-10.30.59-901x1024.jpg", online: true,  last_message: 'Последнее сообщениеasdasda sdasdasdaэто мм', count_unread: 10},
-            {id: 2, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0}
+            {id: 2, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 3, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 4, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 5, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 6, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 7, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 8, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 9, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 10, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 11, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 12, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 13, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 14, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 15, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 16, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 17, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 18, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 19, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0},
+            {id: 20, username: 'Человек муравей', user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg", online: true,  last_message: 'Последнее сообщение это мм',  count_unread: 0}
         ]))
 
         return () => {
@@ -42,7 +60,6 @@ const Chats = () => {
                 </div>
 
                 <ChatComponent />
-
             </div>
 
             <div className={cl.chat_container}>

@@ -12,7 +12,7 @@ const ChatItem = ({userImage, online, username, lastMessage, countUnread}) => {
             <div className={cl.chat__info}>
                 <h4 className={cl.chat_username}>{username}</h4>
                 <div className={cl.last_message}>
-                    <div className={cl.message}>{lastMessage.length > 28 ? lastMessage.substring(0, 28) + '...' : lastMessage}</div>
+                    <div className={cl.message}>{lastMessage.length > 30 ? lastMessage.substring(0,  30) + '...' : lastMessage}</div>
                     {countUnread > 0 && <div className={cl.count_unread}>{countUnread}</div>}
                 </div>
             </div>

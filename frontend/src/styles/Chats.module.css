@@ -1,6 +1,6 @@
 .app {
     width: 100%;
-    height: 100vh;
+    max-height: 100vh;
     right: 0;
     left: 0;
     top: 0;
@@ -10,7 +10,9 @@
 }
 
 .left {
-    width: 350px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
     background: var(--mainColor2);
     /*box-shadow: 0 0 15px rgba(0,0,0,.4);*/
 }
@@ -52,7 +54,27 @@
 /* All user chats */
 .chats {
     margin: 10px 0 0;
+    overflow: auto;
+    max-height: initial;
     /*background: #aaa;*/
+}
+
+
+
+.chats::-webkit-scrollbar{
+    width: 5px;
+    background-color: transparent;
+}
+
+.chats::-webkit-scrollbar-track{
+    background: rgba(0,0,0,.3);
+    border-radius: 10px;
+}
+
+
+.chats::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,.4);
 }
 
 .chat_container {
