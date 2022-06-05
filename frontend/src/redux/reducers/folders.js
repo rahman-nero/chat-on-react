@@ -27,8 +27,8 @@ const reducer = (state = defaultState, action) => {
 }
 
 
-export const setFolds = (payload) => ({type: SET_FOLDS, payload: payload});
+export const setFolds = (payload) => ({type: SET_FOLDS, payload});
 export const clearFolds = () => ({type: CLEAR_FOLDS, payload: ''});
-export const setSelectedFolderId = (payload) => ({type: SET_SELECTED_FOLD_ID, payload: payload});
+export const setSelectedFolderId = (payload) => ({type: SET_SELECTED_FOLD_ID, payload});
 
 export default reducer;

@@ -1,7 +1,8 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import user from "../reducers/user";
 import chats from "../reducers/chats";
 import folders from "../reducers/folders";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 const rootReducers = combineReducers({
     user: user,
@@ -9,6 +10,7 @@ const rootReducers = combineReducers({
     folders: folders
 });
 
-const store = createStore(rootReducers);
+
+const store = createStore(rootReducers, composeWithDevTools());
 
 export default store;

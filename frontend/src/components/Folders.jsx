@@ -1,6 +1,5 @@
 import React from 'react';
-import cl from "../styles/Chats.module.css";
-import {useParams} from "react-router-dom";
+import cl from "../styles/Folders.module.css";
 import FoldItem from "./FoldItem";
 import {useDispatch, useSelector} from "react-redux";
 import {setSelectedFolderId} from "../redux/reducers/folders";

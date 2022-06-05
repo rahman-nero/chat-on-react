@@ -1,10 +1,11 @@
 import React from 'react';
-import cl from "../styles/Chats.module.css";
+import cl from "../styles/Folders.module.css";
 
 const FoldItem = ({changeFolder, selectedFoldId, folderId, folderName, folderIcon}) => {
 
     const classes = [cl.fold];
 
+    // Если папка активная
     if (selectedFoldId === folderId) {
         classes.push(cl.active);
     }

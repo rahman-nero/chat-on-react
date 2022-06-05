@@ -1,10 +1,12 @@
-const defaultState = {}
+const SET_CHATS = 'SET_CHATS';
+
+const defaultState = [];
 
 const reducer = (state = defaultState, action) => {
 
     switch (action.type) {
         case SET_CHATS:
-            return {...action.payload};
+            return [...action.payload];
 
         default:
             return state;
@@ -12,6 +14,6 @@ const reducer = (state = defaultState, action) => {
 }
 
 
-const SET_CHATS = 'SET_CHATS';
+export const setChats = (payload) => ({type: SET_CHATS, payload});
 
 export default reducer;

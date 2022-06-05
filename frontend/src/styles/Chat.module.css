@@ -1,0 +1,57 @@
+.chat {
+    display: flex;
+    padding: 10px 20px;
+    color: var(--textColor);
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+.chat:hover {
+    background: #0d141a;
+}
+
+.chat .image {
+    flex: 0.2;
+}
+
+.chat .image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.chat__info {
+    flex: 1;
+    padding-top: 4px;
+    margin-left: 10px;
+}
+
+.chat_username {
+
+}
+
+.last_message {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #d2d0d3;
+    align-items: center;
+}
+
+.last_message .message {
+
+}
+
+.count_unread {
+    text-align: right;
+    float: right;
+    background: var(--buttonColor);
+    padding: 4px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 400;
+    font-size: 13px;
+}

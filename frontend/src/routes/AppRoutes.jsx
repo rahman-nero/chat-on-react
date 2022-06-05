@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 
 const AppRoutes = () => {
 
-    const user = useSelector((state) => state.user );
+    const user = useSelector((state) => state.user);
 
     // Если пользователь не авторизован
     if (Object.keys(user).length === 0) {
