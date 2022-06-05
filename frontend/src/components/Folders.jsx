@@ -1,27 +1,38 @@
 import React from 'react';
 import cl from "../styles/Chats.module.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCake} from "@fortawesome/free-solid-svg-icons";
 import {useParams} from "react-router-dom";
 import FoldItem from "./FoldItem";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setSelectedFolderId} from "../redux/reducers/folders";
 
 const Folders = () => {
 
-    const folders = useSelector(state => state.folders);
+    const dispatch = useDispatch();
+    const folders = useSelector(state => state.folders.folders);
+    const selectedFoldId = useSelector(state => state.folders.selectedFoldId);
 
-    const changedFolderId = useParams();
-    console.log(changedFolderId);
+    const changeFolder = (id) => {
+        // WORKAROUND
+        if (id === selectedFoldId) {
+            return;
+        }
+
+        dispatch(setSelectedFolderId(id));
+        console.log(id);
+    };
 
     return (
         <div className={cl.folders}>
-            <div className={cl.fold}>
-                <FontAwesomeIcon icon={faCake}/>
-                <div className={cl.fold__caption}>Все чаты</div>
-            </div>
-
-            {folders.map((fold) => (<FoldItem folderId={fold.folder_id} folderName={fold.folder_name} folderIcon={fold.folder_icon}/>))}
-
+            {folders.map((fold) => (
+                <FoldItem
+                    key={fold.folder_id}
+                    changeFolder={changeFolder}
+                    selectedFoldId={selectedFoldId}
+                    folderId={fold.folder_id}
+                    folderName={fold.folder_name}
+                    folderIcon={fold.folder_icon}
+                />
+            ))}
         </div>
     );
 };

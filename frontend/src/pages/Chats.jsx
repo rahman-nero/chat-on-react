@@ -8,14 +8,13 @@ import Folders from "../components/Folders";
 import {clearFolds, setFolds} from "../redux/reducers/folders";
 
 const Chats = () => {
-
-    const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setFolds([
-            {folder_id: 1, folder_name: "Друзья", folder_icon: <FontAwesomeIcon icon={faCake}/>},
-            {folder_id: 2, folder_name: "Работа", folder_icon: <FontAwesomeIcon icon={faAddressBook}/>},
+            {folder_id: 1, folder_name: "Все чаты", folder_icon: <FontAwesomeIcon icon={faCake}/>},
+            {folder_id: 2, folder_name: "Друзья", folder_icon: <FontAwesomeIcon icon={faCake}/>},
+            {folder_id: 3, folder_name: "Работа", folder_icon: <FontAwesomeIcon icon={faAddressBook}/>},
         ]));
 
         return () => {
@@ -30,7 +29,7 @@ const Chats = () => {
     return (
         <div className={cl.app}>
 
-            <Folders />
+            <Folders/>
 
             <div className={cl.left}>
                 <div className={cl.search__block}>
