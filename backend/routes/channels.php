@@ -20,3 +20,6 @@ Broadcast::channel('room.{id}', function ($user, $id) {
 Broadcast::channel('at', function($user) {
     return true;
 });
+
+
+

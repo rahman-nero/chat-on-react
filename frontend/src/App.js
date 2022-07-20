@@ -54,6 +54,7 @@ const App = () => {
     return (
         <BrowserRouter>
             {/* Routes */}
+
             <AppRoutes/>
         </BrowserRouter>
     );

@@ -18,10 +18,10 @@ services:
             context: ./
             dockerfile: docker/php-cli/Dockerfile
             args:
-                WWWUSER: 'obitel'
+                WWWUSER: ${USER}
         volumes:
             - ./backend:/var/www/
-        user: 'obitel'
+        user: ${USER}
         restart: unless-stopped
         ports:
             - "9001:9001"
@@ -33,7 +33,7 @@ services:
             context: ./
             dockerfile: docker/php-fpm/Dockerfile
             args:
-                WWWUSER: 'obitel'
+                WWWUSER: ${USER}
         volumes:
             - ./backend:/var/www/
 #        ports:
@@ -41,7 +41,7 @@ services:
         restart: unless-stopped
         links:
             - mysql
-        user: 'obitel'
+        user: ${USER}
 
     nginx:
         container_name: chat-nginx
@@ -61,13 +61,14 @@ services:
 
     mysql:
         container_name: chat-mysql
-        image: mysql:8.0
+        image: mariadb:10.6
         restart: unless-stopped
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_USER=rahman
             - MYSQL_PASSWORD=rahman
             - MYSQL_DATABASE=app
+            - TZ=Europe/Moscow
         volumes:
             - ./docker/running/mysql:/var/lib/mysql/
         ports:
