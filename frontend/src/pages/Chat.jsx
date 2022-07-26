@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setChatInfo} from "../redux/reducers/chat";
 
 const Chat = () => {
 
-    const {chatId} = useParams();
+    const {id} = useParams();
+    const dispatch = useDispatch();
+    const chats = useSelector(state => state.chats.allChats);
 
-    console.log(chatId);
+    const boot = (chats, id) => {
+        const currentChat = chats.filter((elem) => elem.id === +id);
 
+        dispatch(setChatInfo(...currentChat));
+    }
+
+    boot(chats, id);
+
+    const currentChat = useSelector(state => state.chat.chatInfo);
 
     return (
-        <div>
-
+        <div style={{color:"white"}}>
+            { currentChat.id }
         </div>
     );
 };

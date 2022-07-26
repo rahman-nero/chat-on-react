@@ -23,6 +23,7 @@ const Chats = () => {
             {chats.map((chat) => (
                 <ChatItem
                     key={chat.id}
+                    id={chat.id}
                     username={chat.username}
                     userImage={chat.user_image}
                     lastMessage={chat.last_message}

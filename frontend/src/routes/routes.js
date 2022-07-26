@@ -6,7 +6,7 @@ import Chat from "../pages/Chat";
 
 export const privateRoutes = [
     {path: '/chats', element: <Chats/>},
-    {path: '/chats/:id', element: <Chat/>}
+    {path: '/chats/:id', element: <Chats/>}
 ];
 
 

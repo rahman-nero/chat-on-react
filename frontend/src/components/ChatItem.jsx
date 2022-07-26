@@ -1,10 +1,22 @@
 import React from 'react';
 import cl from "../styles/Chat.module.css";
+import {useDispatch} from "react-redux";
+import {setSelectedChatId} from "../redux/reducers/chat";
+import { useNavigate } from "react-router-dom";
 
-const ChatItem = ({userImage, online, username, lastMessage, countUnread}) => {
+
+const ChatItem = ({id, userImage, online, username, lastMessage, countUnread}) => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const selectChat = (chatId) => {
+        dispatch(setSelectedChatId(chatId));
+        navigate(`/chats/${chatId}`, { replace: true });
+    }
 
     return (
-        <div className={[cl.chat, online ? "online" : ''].join(' ')}>
+        <div onClick={() => selectChat(id)} className={[cl.chat, online ? "online" : ''].join(' ')}>
             <div className={cl.image}>
                 <img src={userImage} alt=""/>
             </div>
