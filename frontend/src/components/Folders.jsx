@@ -3,11 +3,13 @@ import cl from "../styles/Folders.module.css";
 import FoldItem from "./FoldItem";
 import {useDispatch, useSelector} from "react-redux";
 import {setSelectedFolderId} from "../redux/reducers/folders";
+import {setChats, setCurrentFolderChats} from "../redux/reducers/chats";
 
 const Folders = () => {
 
     const dispatch = useDispatch();
     const folders = useSelector(state => state.folders.folders);
+    const allChats = useSelector(state => state.chats.allChats);
     const selectedFoldId = useSelector(state => state.folders.selectedFoldId);
 
     const changeFolder = (id) => {
@@ -17,7 +19,12 @@ const Folders = () => {
         }
 
         dispatch(setSelectedFolderId(id));
-        console.log(id);
+
+        const filteredChats = allChats.filter((elem) => {
+            return elem.folder_id === id;
+        });
+
+        dispatch(setCurrentFolderChats(filteredChats));
     };
 
     return (

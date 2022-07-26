@@ -5,7 +5,14 @@ import ChatItem from "./ChatItem";
 
 const Chats = () => {
 
-    const chats = useSelector(state => state.chats);
+    const chats = useSelector((state) => {
+        if (state.folders.selectedFoldId !== null) {
+            return state.chats.currentFolderChats;
+        }
+
+        return state.chats.allChats;
+    });
+
 
     if (chats.length === 0) {
         return (<h2>Чатов нет, но вы держитесь</h2>)

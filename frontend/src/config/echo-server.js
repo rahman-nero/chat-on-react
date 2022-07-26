@@ -4,7 +4,7 @@ window.io = require('socket.io-client');
 const echoConnect = (token) => {
 
     if (token === undefined) {
-        throw new Error('Token is not transferred');
+        throw new Error('Token is empty');
     }
 
     return new Echo({
