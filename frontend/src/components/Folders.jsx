@@ -3,7 +3,7 @@ import cl from "../styles/Folders.module.css";
 import FoldItem from "./FoldItem";
 import {useDispatch, useSelector} from "react-redux";
 import {setSelectedFolderId} from "../redux/reducers/folders";
-import {setChats, setCurrentFolderChats} from "../redux/reducers/chats";
+import {setCurrentFolderChats} from "../redux/reducers/chats";
 
 const Folders = () => {
 

@@ -5,12 +5,14 @@
     margin-bottom: 1px;
     cursor: pointer;
 }
+
 .chat:hover {
     background: #0d141a;
 }
 
 .chat .image {
     flex: 0.2;
+    position: relative;
 }
 
 .chat .image img {
@@ -20,15 +22,24 @@
     object-fit: cover;
 }
 
-
 .chat__info {
     flex: 1;
     padding-top: 4px;
     margin-left: 10px;
 }
 
-.chat_username {
+.online {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 5px;
+    right: 10px;
+    background: var(--onlineMark);
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(37, 75, 245, 1);
+}
 
+.chat_username {
 }
 
 .last_message {
@@ -42,7 +53,6 @@
 }
 
 .last_message .message {
-
 }
 
 .count_unread {
@@ -55,3 +65,8 @@
     font-weight: 400;
     font-size: 13px;
 }
+
+.selectedChat {
+    background: var(--mainColor);
+}
+

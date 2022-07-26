@@ -1,9 +1,9 @@
 import React from 'react';
 import cl from "../styles/Chats.module.css";
 import {useSelector} from "react-redux";
-import ChatItem from "./ChatItem";
+import ListChatItem from "./ListChatItem";
 
-const Chats = () => {
+const ListChats = ({selectedChatId}) => {
 
     const chats = useSelector((state) => {
         if (state.folders.selectedFoldId !== null) {
@@ -21,9 +21,10 @@ const Chats = () => {
     return (
         <div className={cl.chats}>
             {chats.map((chat) => (
-                <ChatItem
+                <ListChatItem
                     key={chat.id}
                     id={chat.id}
+                    isSelected={selectedChatId === chat.id}
                     username={chat.username}
                     userImage={chat.user_image}
                     lastMessage={chat.last_message}
@@ -35,4 +36,4 @@ const Chats = () => {
     );
 };
 
-export default Chats;
+export default ListChats;
