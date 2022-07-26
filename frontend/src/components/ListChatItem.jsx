@@ -23,10 +23,10 @@ const ListChatItem = ({id, userImage, online, username, isSelected, lastMessage,
 
 
     return (
-        <div onClick={selectChat} className={[cl.chat, isSelected ? cl.selectedChat : ''].join(' ')} >
+        <div onClick={selectChat} className={[cl.chat, isSelected && cl.selectedChat].join(' ')} >
             <div className={cl.image}>
                 <img src={userImage} alt=""/>
-                { online ? <div className={cl.online}></div> : ''}
+                { online && <div className={cl.online}></div>}
             </div>
 
             <div className={cl.chat__info}>

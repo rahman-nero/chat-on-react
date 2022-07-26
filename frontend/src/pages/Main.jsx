@@ -27,6 +27,7 @@ const Main = () => {
                 username: 'Бензопила в действий',
                 user_image: "https://www.osmpic.com/wp-content/uploads/2019/03/PicsArt_03-21-10.30.59-901x1024.jpg",
                 online: false,
+                last_online: "2019-03-22 18:32",
                 last_message: 'Последнее сообщениеasdasda sdasdasdaэто мм',
                 count_unread: 10
             },
@@ -45,6 +46,7 @@ const Main = () => {
                 username: 'Человек муравей',
                 user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg",
                 online: false,
+                last_online: "2019-03-22 18:32",
                 last_message: 'Последнее сообщение это мм',
                 count_unread: 0
             },
@@ -134,7 +136,8 @@ const Main = () => {
                 folder_id: 1,
                 username: 'Человек муравей',
                 user_image: "https://cdn.dribbble.com/users/5534/screenshots/14230133/media/e2f853f8232acad78bf143c32f2f3a04.jpg",
-                online: true,
+                online: false,
+                last_online: "2019-03-22 18:32",
                 last_message: 'Последнее сообщение это мм',
                 count_unread: 0
             }
@@ -165,7 +168,7 @@ const Main = () => {
             <div className={cl.chat_container}>
                 {selectedChatId
                     ? <Chat/>
-                    : <div>Пожалуйста, выберите чат чтобы пообщаться с кем-то</div>
+                    : <div style={{color: "white"}}>Пожалуйста, выберите чат чтобы пообщаться с кем-то</div>
                 }
             </div>
         </div>

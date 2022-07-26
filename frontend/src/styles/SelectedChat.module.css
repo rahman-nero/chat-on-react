@@ -1,18 +1,111 @@
 .header {
-
+    border-left: 1px solid var(--mainColor);
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid rgba(255,255,255,.05);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
     background: var(--mainColor2);
     cursor: pointer;
 }
 
+.user_information {
+    display: flex;
+    padding: 10px;
+    height: 30px;
+}
 
-.messages {
+.user_information img {
+    width: 40px;
+    object-fit: cover;
+    height: 40px;
+    border-radius: 50%;
+}
 
+.userInfo {
+    margin-left: 20px;
+}
+
+.userInfo .username {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.userInfo .last_online {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, .7);
+    font-weight: normal;
 }
 
 
+.messages {
+    padding: 10px 5px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.message {
+    position: relative;
+    max-width: 400px;
+    margin-top: 20px;
+    padding: 10px;
+    background: var(--mainColor2);
+    box-shadow: 0px 0px 10px rgba(0,0,0, .4);
+}
+
+.message.left {
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 0px;
+    align-self: flex-start;
+}
+
+.message.right {
+    border-radius: 10px 10px 0px 10px;
+    margin-right: 10px;
+    align-self: flex-end;
+}
+
+
+.message::before
+{
+    content: '';
+    position: absolute;
+    bottom: -0.4px;
+    display: block;
+}
+
+.message.left::before
+{
+    border: 10px solid transparent;
+    border-right: 10px solid var(--mainColor2);
+    left: -19px;
+}
+
+.message.right::before
+{
+    border: 10px solid transparent;
+    border-left: 10px solid var(--mainColor2);
+    right: -19px;
+}
+
+
+.message_username {
+
+}
+
+.message_date {
+    font-size: 10px;
+}
+
+.message_content {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+
+/** Форма отправки */
 .send_form {
 
 }
